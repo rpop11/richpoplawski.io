@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Poplawski | Senior Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563EB;
+            --dark-blue: #1D4ED8;
+            --text-dark: #1F2937;
+            --text-medium: #374151;
+            --text-gray: #6B7280;
+            --border-gray: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --bg-white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header/Hero */
+        header {
+            padding: 40px 0 60px 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .header-top {
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .title-separator {
+            color: var(--text-gray);
+            margin: 0 12px;
+        }
+
+        .subtitle {
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 64px;
+            align-items: start;
+            margin-bottom: 48px;
+        }
+
+        .intro-content {
+            max-width: 100%;
+        }
+
+        .intro-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .headshot {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .image-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .image-links a {
+            color: var(--text-gray);
+            transition: color 0.2s ease;
+        }
+
+        .image-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .location {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-gray);
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-links span {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .tagline {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 32px;
+            line-height: 1.3;
+        }
+
+        .about-intro {
+            max-width: 100%;
+        }
+
+        .about-intro p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .intro-image {
+                order: -1;
+            }
+
+            .tagline {
+                font-size: 24px;
+            }
+        }
+
+
+        .stats-row {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 4px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Featured Work Section */
+        .case-studies {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 48px;
+            color: var(--text-dark);
+        }
+
+        .case-study-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 32px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Card Preview (Always Visible) */
+        .card-preview {
+            padding: 40px;
+            cursor: pointer;
+        }
+
+        .card-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .company-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            flex-shrink: 0;
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .card-header-text {
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #EFF6FF;
+            color: var(--primary-blue);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .metrics-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .expand-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 15px;
+            margin-top: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: gap 0.3s ease;
+        }
+
+        .expand-button:hover {
+            gap: 12px;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Expandable Drawer Content */
+        .card-drawer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .case-study-card.expanded .card-drawer {
+            max-height: 6000px;
+        }
+
+        .drawer-content {
+            padding: 48px 40px;
+        }
+
+        .drawer-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 32px 0 16px 0;
+        }
+
+        .drawer-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .drawer-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 24px 0 12px 0;
+        }
+
+        .drawer-content p {
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .drawer-content ul {
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin: 12px 0;
+            padding-left: 24px;
+            font-size: 16px;
+        }
+
+        .drawer-content li {
+            margin: 8px 0;
+        }
+
+        .highlight-box {
+            background: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .result-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .result-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .result-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .headshot {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin: 6px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .stats-row {
+                gap: 32px;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .company-logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .metrics-row {
+                gap: 24px;
+            }
+
+            .drawer-content {
+                padding: 32px 24px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .headshot {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <h1>Rich Poplawski <span class="title-separator">|</span> <span class="subtitle">Senior Product Manager</span></h1>
+            </div>
+            
+            <div class="intro-section">
+                <div class="intro-content">
+                    <p class="tagline">I Build Products From Messy Data and Complex Workflows that Drive Outcomes</p>
+                    
+                    <div class="about-intro">
+                        <p>I turn complex, multi-stakeholder operational systems into products teams can use to make strategic decisions. My focus: answer what's actually working, validate quickly with data, and ship practical products grounded in real user behavior.</p>
+                        
+                        <p>I've driven 5× growth at Max Retail, led AI-driven trial experiences at FormAssembly, and built a 0-to-1 marketplace at Opportunity@Work.</p>
+                    </div>
+                </div>
+                
+                <div class="intro-image">
+                    <img src="images/RichHeadShot.jpeg" alt="Rich Poplawski" class="headshot">
+                    <div class="image-links">
+                        <a href="https://linkedin.com/in/rich-poplawski" target="_blank" title="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" title="Resume">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="location">Washington, DC</p>
+                </div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">18.5×</div>
+                    <div class="stat-label">Faster Activation</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5× Growth</div>
+                    <div class="stat-label">YoY GMV</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100 Hires</div>
+                    <div class="stat-label">in 6 Months</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">54%</div>
+                    <div class="stat-label">Order Automation</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Studies -->
+    <section class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+
+            <!-- Case Study 1: FormAssembly -->
+            <div class="case-study-card" data-case="formassembly">
+                <div class="card-preview">
+                    <div class="card-header">
+                        <img src="images/formassembly_logo.webp" alt="FormAssembly" class="company-logo">
+                        <div class="card-header-text">
+                            <span class="tag">AI-Powered PLG Transformation</span>
+                            <h3 class="card-title">Collapsing Time-to-Value from Days to Hours with AI</h3>
+                            <p class="company-name">FormAssembly · Head of Product-Led Growth</p>
+                        </div>
+                    </div>
+                    
+                    <p class="card-description">Trial users were not converting before finding value. A 3-day AI prototype collapsed time-to-value and became the #1 roadmap priority.</p>
+                    
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">3 Days</div>
+                            <div class="metric-label">Prototype Built</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">10 Customers</div>
+                            <div class="metric-label">Validated</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">#1 Initiative</div>
+                            <div class="metric-label">2024 Roadmap</div>
+                        </div>
+                    </div>
+
+                    <button class="expand-button">
+                        Read Full Story
+                        <span class="expand-icon">↓</span>
+                    </button>
+                </div>
+
+                <div class="card-drawer">
+                    <div class="drawer-content">
+                        <h2>Context</h2>
+                        <p>FormAssembly's value proposition was clear: build a form, connect it to Salesforce, watch it work. But most trial users churned before reaching that moment. The problem was time. Building a workflow and connecting it to a form took days. By the time they got there, they'd already left.</p>
+
+                        <h2>Key Challenges</h2>
+                        <p><strong>Long Time-to-Value:</strong> Setup took days, users weren't finding value quick enough and not converting to paid</p>
+                        <p><strong>Unknown User Preferences:</strong> Unclear how much AI guidance vs. user control was needed</p>
+                        <p><strong>Need for Speed:</strong> Had to prove the concept with a working prototype fast</p>
+
+                        <h2>What Was Shipped</h2>
+                        
+                        <p><strong>01. Designed backwards from the aha moment</strong><br>
+                        Rather than asking users to build from scratch, what if AI generated the workflow and form based on what they wanted to accomplish? Built a functional prototype using Cursor in a few days showing AI generating and wiring to Salesforce.</p>
+
+                        <p><strong>02. Validated with real users in Week 2</strong><br>
+                        Got feedback from 10 customers. The feedback confirmed the concept, particularly around how much guidance was needed versus where users wanted control.</p>
+
+                        <p><strong>03. Delivered working prototype and validation that drove roadmap prioritization</strong><br>
+                        Working prototype with customer validation. The concept became the prioritized initiative for the 2024 roadmap.</p>
+
+                        <h2>Key Takeaway</h2>
+                        
+                        <p>Users weren't failing because the product was bad. They were churning because time-to-value was too long. Reducing the path to value beat improving the value itself. Interactive prototypes reveal what users want control over vs. where they want to be led. Walking into the retreat with a working prototype and user feedback spoke louder than a deck.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Max Retail -->
+            <div class="case-study-card" data-case="maxretail">
+                <div class="card-preview">
+                    <div class="card-header">
+                        <img src="images/Max-Retail-Logo.jpeg" alt="Max Retail" class="company-logo">
+                        <div class="card-header-text">
+                            <span class="tag">Strategic Marketplace Pivot</span>
+                            <h3 class="card-title">5× Growth By Pivoting from B2B to B2B2C Marketplace</h3>
+                            <p class="company-name">Max Retail · Head of Product</p>
+                        </div>
+                    </div>
+                    
+                    <p class="card-description">Retailers were churning before making their first sale. A 3-week manual test with Excel spreadsheets proved a new model. The business pivoted from B2B to B2B2C.</p>
+                    
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">5×</div>
+                            <div class="metric-label">YoY GMV Growth</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">87%</div>
+                            <div class="metric-label">B2B2C Transactions</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">600+</div>
+                            <div class="metric-label">Active Retailers</div>
+                        </div>
+                    </div>
+
+                    <button class="expand-button">
+                        Read Full Story
+                        <span class="expand-icon">↓</span>
+                    </button>
+                </div>
+
+                <div class="card-drawer">
+                    <div class="drawer-content">
+                        <h2>Context</h2>
+                        <p>Max Retail ran a B2B marketplace for surplus inventory. Retailers were churning before making their first sale. The data was clear: sellers who made a first sale stuck around. Everyone else left.</p>
+
+                        <h2>Key Challenges</h2>
+                        <p><strong>Retention Problem:</strong> Time-to-first-sale was the churn predictor</p>
+                        <p><strong>Three Competing Solutions:</strong> Optimize B2B, build marketing tools, or pivot to B2B2C</p>
+                        <p><strong>Unclear Which Would Work:</strong> No data to validate which path was right</p>
+
+                        <h2>What Was Shipped</h2>
+                        
+                        <p><strong>01. Validated cheaply first</strong><br>
+                        Ran a 3-week manual test. Uploaded 1,000 items from top 20 retailers to a 3rd party marketplace via Excel. Sales spiked immediately. Proved the model with zero engineering investment.</p>
+
+                        <p><strong>02. Built repeatable integration pattern</strong><br>
+                        Engineer one integration while manually testing the next marketplace. Validate demand before committing engineering time. Scaled to 12 integrations.</p>
+
+                        <p><strong>03. Focused on the metric that mattered</strong><br>
+                        Too many metrics were being tracked initially. Cut through the noise to focus on time-to-first-sale because that metric predicted retention.</p>
+
+                        <h2>Key Takeaway</h2>
+                        
+                        <p>The liquidity problem was a supply-demand imbalance. Rather than build buyer demand from scratch, the solution plugged into existing marketplaces where consumer demand already existed. A 3-week manual experiment validated a major strategic pivot and saved months of debate.</p>
+
+                        <div class="highlight-box">
+                            <p>"Test before you build. A 3-week manual experiment can save months of debate."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3: Opportunity@Work -->
+            <div class="case-study-card" data-case="opportunityatwork">
+                <div class="card-preview">
+                    <div class="card-header">
+                        <img src="images/opportunityatwork_logo.png" alt="Opportunity@Work" class="company-logo">
+                        <div class="card-header-text">
+                            <span class="tag">0-to-1 Marketplace Build</span>
+                            <h3 class="card-title">Building 0-to-1 Skills-Based Hiring Marketplace</h3>
+                            <p class="company-name">Opportunity@Work · Director of Product</p>
+                        </div>
+                    </div>
+                    
+                    <p class="card-description">People without degrees were being filtered out before humans saw their profiles. A skills-based marketplace placed 100 hires in 6 months.</p>
+                    
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">100</div>
+                            <div class="metric-label">Hires in 6 Months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">$6M</div>
+                            <div class="metric-label">Funding Secured</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">16%</div>
+                            <div class="metric-label">Connection Increase</div>
+                        </div>
+                    </div>
+
+                    <button class="expand-button">
+                        Read Full Story
+                        <span class="expand-icon">↓</span>
+                    </button>
+                </div>
+
+                <div class="card-drawer">
+                    <div class="drawer-content">
+                        <h2>Context</h2>
+                        <h2>Context</h2>
+                        <p>Opportunity@Work had a mission (help people without degrees get better jobs) but no product. A skills-based hiring marketplace needed to be built from scratch. HR teams expected full ATS functionality: interview scheduling, offer management. Telling them those things weren't being built required a clear answer: what are we building, and why is that enough to make a hire?</p>
+
+                        <h2>Key Challenges</h2>
+                        <p><strong>Feature Expectations vs. Reality:</strong> HR teams wanted full ATS, had to justify building simplified product with less flare but same value</p>
+                        <p><strong>Limited Measurement Options:</strong> Needed to prove confirmed hires without building full ATS integrations</p>
+                        <p><strong>Three-Sided Marketplace:</strong> Candidates, employers, and training providers all needed working funnels</p>
+
+                        <h2>What Was Shipped</h2>
+                        
+                        <p><strong>01. Built only what proved the value proposition</strong><br>
+                        Search by skills, rich candidate profiles, direct messaging. Everything else got deprioritized: interview scheduling, offer management, ATS integrations.</p>
+
+                        <p><strong>02. Used mission-aligned partners for measurement</strong><br>
+                        Skipping ATS integration was a constraint. Mission-aligned employer partners manually reported confirmed hires. Not scalable long-term, but validated the model in months rather than years.</p>
+
+                        <p><strong>03. Built tracking across all three sides to understand real behavior</strong><br>
+                        Mixpanel tracking across all three sides revealed what actually happened. Expected: skills-first search. Reality: location and availability came first. Filters were updated to match real behavior.</p>
+
+                        <h2>Key Takeaway</h2>
+                        
+                        <p>Zero to one is about what you say no to. Assumptions about user behavior need testing against real usage. Mission alignment creates measurement infrastructure when technology cannot. Three-sided marketplaces require a funnel for every participant.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 4: Order Automation -->
+            <div class="case-study-card" data-case="automation">
+                <div class="card-preview">
+                    <div class="card-header">
+                        <img src="images/Max-Retail-Logo.jpeg" alt="Max Retail" class="company-logo">
+                        <div class="card-header-text">
+                            <span class="tag">Operational Excellence & AI</span>
+                            <h3 class="card-title">54% Automation Without Breaking Black Friday</h3>
+                            <p class="company-name">Max Retail · Head of Product</p>
+                        </div>
+                    </div>
+                    
+                    <p class="card-description">Operations was drowning in manual processing across 12 marketplaces. Shipped automation two weeks before Black Friday with 0 major issues.</p>
+                    
+                    <div class="metrics-row">
+                        <div class="metric">
+                            <div class="metric-value">54%</div>
+                            <div class="metric-label">Orders Automated</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">5+ Hours</div>
+                            <div class="metric-label">Freed Daily</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">0</div>
+                            <div class="metric-label">Black Friday Bugs</div>
+                        </div>
+                    </div>
+
+                    <button class="expand-button">
+                        Read Full Story
+                        <span class="expand-icon">↓</span>
+                    </button>
+                </div>
+
+                <div class="card-drawer">
+                    <div class="drawer-content">
+                        <h2>Context</h2>
+                        <p>Growth was exposing infrastructure fragility. Orders were flowing in from 12 marketplace integrations. Every channel depended on the same small operations team. With Black Friday approaching, the team was unsustainable. More sales meant more headcount, and costs were growing linearly with revenue.</p>
+
+                        <h2>Key Challenges</h2>
+                        <p><strong>Different Integration Standards:</strong> Each marketplace had different integrations and exception scenarios</p>
+                        <p><strong>Immovable Deadline:</strong> Black Friday was the deadline that could not move</p>
+                        <p><strong>High-Stakes Failure Risk:</strong> If automation failed during peak season, operations would be overwhelmed with no fallback</p>
+
+                        <h2>What Was Shipped</h2>
+                        
+                        <p><strong>01. Ran parallel workstreams for speed and trust</strong><br>
+                        Product track built a no-code workflow so operations team had hands-on experience before full automation shipped. Engineering track built Master SKU infrastructure for standardized order ingestion. Changing tools a team relies on requires trust.</p>
+
+                        <p><strong>02. Built exception framework to focus human effort</strong><br>
+                        The goal was not to eliminate human involvement but to focus it. Automate the common path. Route exceptions (malformed addresses, inventory mismatches, API downtime) to operations where human judgment adds value.</p>
+
+                        <p><strong>03. Made scope cuts to hit deadline</strong><br>
+                        Multi-item orders had been underestimated. De-scoped multi-item orders. Protected 86% of Black Friday revenue. Shipped on time. Multi-item orders could follow in the next release.</p>
+
+                        <p><strong>04. Launched with two-week buffer before peak season</strong><br>
+                        The automation went live second week of November with 0 major issues. The system held.</p>
+
+                        <h2>Key Takeaway</h2>
+                        
+                        <p>The no-code workflow wasn't a stopgap. It was deliberate trust-building with operations before flipping to full automation. The near-miss was a planning lesson. Scope cuts were uncomfortable but necessary. The two-week buffer before Black Friday wasn't accidental. It gave the team real time to absorb what went wrong in QA and adjust mid-execution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/rich-poplawski" target="_blank">LinkedIn</a>
+                <a href="#">Resume</a>
+                <span>Washington, DC</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Expandable drawer functionality
+        document.querySelectorAll('.expand-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const card = button.closest('.case-study-card');
+                const isExpanded = card.classList.contains('expanded');
+                
+                // Close all other cards
+                document.querySelectorAll('.case-study-card').forEach(c => {
+                    c.classList.remove('expanded');
+                });
+                
+                // Toggle current card
+                if (!isExpanded) {
+                    card.classList.add('expanded');
+                    
+                    // Smooth scroll to card top after expansion
+                    setTimeout(() => {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
