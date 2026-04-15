@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rich Poplawski | Senior Product Manager</title>
+    <title>Rich Poplawski | Product Leader/Builder</title>
     <style>
         * {
             margin: 0;
@@ -547,9 +547,152 @@
                 display: block;
             }
         }
+        /* Sticky Nav */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-gray);
+            padding: 0 24px;
+        }
+
+        .site-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-brand {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-brand .nav-sep {
+            color: var(--text-gray);
+            margin: 0 8px;
+            font-weight: 400;
+        }
+
+        .nav-brand .nav-role {
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-coming-soon {
+            position: relative;
+            font-size: 14px;
+            color: var(--text-gray);
+            cursor: default;
+        }
+
+        .nav-coming-soon .badge {
+            position: absolute;
+            top: -8px;
+            right: -36px;
+            background: #F59E0B;
+            color: white;
+            font-size: 9px;
+            font-weight: 600;
+            padding: 2px 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-gray);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-section .contact-sub {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 36px;
+        }
+
+        .contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 16px;
+            }
+            .nav-brand .nav-role {
+                display: none;
+            }
+            .nav-brand .nav-sep {
+                display: none;
+            }
+            .contact-items {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Sticky Nav -->
+    <nav class="site-nav">
+        <div class="container">
+            <a href="/" class="nav-brand">Rich Poplawski<span class="nav-sep">|</span><span class="nav-role">Product Leader/Builder</span></a>
+            <div class="nav-links">
+                <a href="#">Resume</a>
+                <a href="#featured-work">Featured Work</a>
+                <span class="nav-coming-soon">Personal Builds<span class="badge">SOON</span></span>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -614,7 +757,7 @@
     </header>
 
     <!-- Case Studies -->
-    <section class="case-studies">
+    <section id="featured-work" class="case-studies">
         <div class="container">
             <h2 class="section-title">Featured Work</h2>
 
@@ -880,16 +1023,27 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="footer-links">
-                <a href="https://linkedin.com/in/rich-poplawski" target="_blank">LinkedIn</a>
-                <a href="#">Resume</a>
-                <span>Washington, DC</span>
+            <h2>Get in Touch</h2>
+            <p class="contact-sub">Open to product leadership roles and interesting conversations.</p>
+            <div class="contact-items">
+                <a href="mailto:rpops11@gmail.com" class="contact-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    rpops11@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/rich-poplawski/" target="_blank" class="contact-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    linkedin.com/in/rich-poplawski
+                </a>
+                <a href="https://github.com/rpop11" target="_blank" class="contact-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    github.com/rpop11
+                </a>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script>
         // Expandable drawer functionality
