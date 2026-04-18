@@ -944,7 +944,7 @@
             <div class="nav-links">
                 <a href="/Richard_Poplawski_Resume.pdf" target="_blank">Resume</a>
                 <a href="#featured-work">Featured Work</a>
-                <a href="#personal-builds" class="nav-coming-soon">Personal Builds<span class="badge">SOON</span></a>
+                <a href="#personal-builds" class="nav-coming-soon">Personal Builds</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -1291,7 +1291,7 @@
             <div class="build-card">
                 <div class="build-card-title">Fala Já 🇧🇷</div>
                 <p class="build-card-tagline">Five cities. Two thousand words. 90% of every conversation you'll ever have in Brazil.</p>
-                <p class="build-card-oneliner">I'd tried every Portuguese learning method out there. None of them were built around how I actually wanted to learn — so I built one that was.</p>
+                <p class="build-card-oneliner">I've been on and off learning Portuguese for a few years, and the biggest breakthrough came from a simple PDF of the 2,000 most common words. It focused on frequency and real usage, not random vocab.<br><br>That's when it clicked that most apps aren't designed for conversational fluency. So I built my own, grounded in the approach that actually worked.</p>
                 <div class="build-tags">
                     <span class="build-tag">Next.js</span>
                     <span class="build-tag">TypeScript</span>
@@ -1303,10 +1303,6 @@
                         Try Fala Já
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                     </a>
-                    <button class="btn-ghost" onclick="openBuildModal()">
-                        See how it was built
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    </button>
                     <a href="https://github.com/rpop11/fala-ja" target="_blank" class="btn-source">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         View source
@@ -1315,38 +1311,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Build Modal: Fala Já -->
-    <div class="modal-overlay" id="buildModal" onclick="closeBuildModalOnOverlay(event)">
-        <div class="modal">
-            <button class="modal-close" onclick="closeBuildModal()">✕</button>
-            <div class="modal-title">Fala Já 🇧🇷 — How it was built</div>
-            <div class="modal-subtitle">Next.js · TypeScript · Supabase · Spaced Repetition</div>
-
-            <h3>The Problem</h3>
-            <p>Most language apps teach vocabulary by category — all the colors, then all the fruits. Research shows this causes interference in memory, making words harder to retain. After trying every method I could find, I decided to stop adapting to existing tools and build exactly what I needed.</p>
-
-            <h3>The Approach</h3>
-            <p>I sourced the 2,000 most common words in spoken Brazilian Portuguese from a 61-million-word subtitle corpus of real film and TV — words Brazilians actually say, not textbook vocabulary. Words are grouped into story-driven clusters across 5 regions of Brazil, so they reinforce each other instead of competing.</p>
-
-            <h3>The Journey</h3>
-            <p>20 levels across 5 arcs — São Paulo → Rio de Janeiro → Minas Gerais → Bahia → Amazônia. Each level unlocks with a story vignette written in Brazilian Portuguese.</p>
-
-            <h3>How It Works</h3>
-            <p>A custom spaced repetition engine schedules reviews at 4h → 1 day → 3 days → 1 week → 2 weeks. Three game modes rotate — flashcard, fill-in-the-blank, and conjugation drill. Every word is spoken aloud via browser TTS in Brazilian Portuguese.</p>
-
-            <h3>Stack</h3>
-            <div class="modal-stack">
-                <span>Next.js 16</span>
-                <span>TypeScript</span>
-                <span>Tailwind v4</span>
-                <span>Supabase</span>
-                <span>Framer Motion</span>
-                <span>Zustand</span>
-                <span>Web Speech API</span>
-            </div>
-        </div>
-    </div>
 
     <!-- Contact -->
     <section id="contact" class="contact-section">
@@ -1371,25 +1335,6 @@
     </section>
 
     <script>
-        // Build modal
-        function openBuildModal() {
-            document.getElementById('buildModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeBuildModal() {
-            document.getElementById('buildModal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        function closeBuildModalOnOverlay(e) {
-            if (e.target === document.getElementById('buildModal')) closeBuildModal();
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeBuildModal();
-        });
-
         // Expandable drawer functionality
         document.querySelectorAll('.expand-button').forEach(button => {
             button.addEventListener('click', (e) => {
