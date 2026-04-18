@@ -605,7 +605,11 @@
             position: relative;
             font-size: 14px;
             color: var(--text-gray);
-            cursor: default;
+            text-decoration: none;
+        }
+
+        .nav-coming-soon:hover {
+            color: var(--primary-blue);
         }
 
         .nav-coming-soon .badge {
@@ -622,6 +626,256 @@
             letter-spacing: 0.3px;
             transform: rotate(15deg);
             transform-origin: center;
+        }
+
+        /* Personal Builds Section */
+        .personal-builds {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .builds-header {
+            margin-bottom: 40px;
+        }
+
+        .builds-header-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .builds-header h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .builds-header .builds-sub {
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .build-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 40px;
+            background: var(--bg-white);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .build-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        .build-card-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .build-card-tagline {
+            font-size: 15px;
+            color: var(--text-medium);
+            font-style: italic;
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .build-card-oneliner {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .build-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .build-tag {
+            padding: 4px 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-gray);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-medium);
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+        }
+
+        .build-ctas {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-top: 28px;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-blue);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-ghost:hover {
+            color: var(--dark-blue);
+        }
+
+        .btn-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-gray);
+            font-size: 14px;
+            text-decoration: none;
+            margin-left: auto;
+            transition: color 0.2s;
+        }
+
+        .btn-source:hover {
+            color: var(--text-dark);
+        }
+
+        /* Build Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 48px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-gray);
+            padding: 6px;
+            line-height: 1;
+            transition: color 0.2s;
+            font-size: 20px;
+        }
+
+        .modal-close:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 36px;
+        }
+
+        .modal h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 28px 0 10px 0;
+        }
+
+        .modal h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .modal p {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.75;
+            margin-bottom: 8px;
+        }
+
+        .modal-stack {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .modal-stack span {
+            padding: 4px 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-gray);
+            border-radius: 20px;
+            font-size: 12px;
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            color: var(--text-medium);
+        }
+
+        @media (max-width: 768px) {
+            .build-ctas {
+                gap: 16px;
+            }
+            .btn-source {
+                margin-left: 0;
+            }
+            .modal {
+                padding: 32px 24px;
+            }
         }
 
         /* Contact Section */
@@ -690,7 +944,7 @@
             <div class="nav-links">
                 <a href="/Richard_Poplawski_Resume.pdf" target="_blank">Resume</a>
                 <a href="#featured-work">Featured Work</a>
-                <span class="nav-coming-soon">Personal Builds<span class="badge">SOON</span></span>
+                <a href="#personal-builds" class="nav-coming-soon">Personal Builds<span class="badge">SOON</span></a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -1026,6 +1280,74 @@
         </div>
     </section>
 
+    <!-- Personal Builds -->
+    <section id="personal-builds" class="personal-builds">
+        <div class="container">
+            <div class="builds-header">
+                <div class="builds-header-label">Personal Builds</div>
+                <h2>What I ship when I have an idea and a problem to solve.</h2>
+            </div>
+
+            <div class="build-card">
+                <div class="build-card-title">Fala Já 🇧🇷</div>
+                <p class="build-card-tagline">Five cities. Two thousand words. 90% of every conversation you'll ever have in Brazil.</p>
+                <p class="build-card-oneliner">I'd tried every Portuguese learning method out there. None of them were built around how I actually wanted to learn — so I built one that was.</p>
+                <div class="build-tags">
+                    <span class="build-tag">Next.js</span>
+                    <span class="build-tag">TypeScript</span>
+                    <span class="build-tag">Supabase</span>
+                    <span class="build-tag">Spaced Repetition</span>
+                </div>
+                <div class="build-ctas">
+                    <a href="https://fala-ja.richpoplawski.io" target="_blank" class="btn-primary">
+                        Try Fala Já
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <button class="btn-ghost" onclick="openBuildModal()">
+                        See how it was built
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </button>
+                    <a href="https://github.com/rpop11/fala-ja" target="_blank" class="btn-source">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View source
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build Modal: Fala Já -->
+    <div class="modal-overlay" id="buildModal" onclick="closeBuildModalOnOverlay(event)">
+        <div class="modal">
+            <button class="modal-close" onclick="closeBuildModal()">✕</button>
+            <div class="modal-title">Fala Já 🇧🇷 — How it was built</div>
+            <div class="modal-subtitle">Next.js · TypeScript · Supabase · Spaced Repetition</div>
+
+            <h3>The Problem</h3>
+            <p>Most language apps teach vocabulary by category — all the colors, then all the fruits. Research shows this causes interference in memory, making words harder to retain. After trying every method I could find, I decided to stop adapting to existing tools and build exactly what I needed.</p>
+
+            <h3>The Approach</h3>
+            <p>I sourced the 2,000 most common words in spoken Brazilian Portuguese from a 61-million-word subtitle corpus of real film and TV — words Brazilians actually say, not textbook vocabulary. Words are grouped into story-driven clusters across 5 regions of Brazil, so they reinforce each other instead of competing.</p>
+
+            <h3>The Journey</h3>
+            <p>20 levels across 5 arcs — São Paulo → Rio de Janeiro → Minas Gerais → Bahia → Amazônia. Each level unlocks with a story vignette written in Brazilian Portuguese.</p>
+
+            <h3>How It Works</h3>
+            <p>A custom spaced repetition engine schedules reviews at 4h → 1 day → 3 days → 1 week → 2 weeks. Three game modes rotate — flashcard, fill-in-the-blank, and conjugation drill. Every word is spoken aloud via browser TTS in Brazilian Portuguese.</p>
+
+            <h3>Stack</h3>
+            <div class="modal-stack">
+                <span>Next.js 16</span>
+                <span>TypeScript</span>
+                <span>Tailwind v4</span>
+                <span>Supabase</span>
+                <span>Framer Motion</span>
+                <span>Zustand</span>
+                <span>Web Speech API</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -1049,6 +1371,25 @@
     </section>
 
     <script>
+        // Build modal
+        function openBuildModal() {
+            document.getElementById('buildModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBuildModal() {
+            document.getElementById('buildModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeBuildModalOnOverlay(e) {
+            if (e.target === document.getElementById('buildModal')) closeBuildModal();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeBuildModal();
+        });
+
         // Expandable drawer functionality
         document.querySelectorAll('.expand-button').forEach(button => {
             button.addEventListener('click', (e) => {
