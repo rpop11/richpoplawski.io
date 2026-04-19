@@ -659,12 +659,26 @@
             color: var(--text-gray);
         }
 
+        .builds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .builds-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .build-card {
             border: 1px solid var(--border-gray);
             border-radius: 12px;
             padding: 40px;
             background: var(--bg-white);
             transition: box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .build-card:hover {
@@ -718,6 +732,7 @@
             flex-wrap: wrap;
             padding-top: 28px;
             border-top: 1px solid var(--border-gray);
+            margin-top: auto;
         }
 
         .btn-primary {
@@ -1288,26 +1303,55 @@
                 <h2>What I ship when I have an idea and a problem to solve.</h2>
             </div>
 
-            <div class="build-card">
-                <div class="build-card-title">Fala Já 🇧🇷</div>
-                <p class="build-card-tagline">Five cities. Two thousand words. 90% of every conversation you'll ever have in Brazil.</p>
-                <p class="build-card-oneliner">I've been on and off learning Portuguese for a few years, and the biggest breakthrough came from a simple PDF of the 2,000 most common words. It focused on frequency and real usage, not random vocab.<br><br>That's when it clicked that most apps aren't designed for conversational fluency. So I built my own, grounded in the approach that actually worked.</p>
-                <div class="build-tags">
-                    <span class="build-tag">Next.js</span>
-                    <span class="build-tag">TypeScript</span>
-                    <span class="build-tag">Supabase</span>
-                    <span class="build-tag">Spaced Repetition</span>
+            <div class="builds-grid">
+
+                <!-- Fala Já -->
+                <div class="build-card">
+                    <div class="build-card-title">Fala Já 🇧🇷</div>
+                    <p class="build-card-tagline">Five cities. Two thousand words. 90% of every conversation you'll ever have in Brazil.</p>
+                    <p class="build-card-oneliner">I've been on and off learning Portuguese for a few years, and the biggest breakthrough came from a simple PDF of the 2,000 most common words. It focused on frequency and real usage, not random vocab.<br><br>That's when it clicked that most apps aren't designed for conversational fluency. So I built my own, grounded in the approach that actually worked.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">Next.js</span>
+                        <span class="build-tag">TypeScript</span>
+                        <span class="build-tag">Supabase</span>
+                        <span class="build-tag">Spaced Repetition</span>
+                    </div>
+                    <div class="build-ctas">
+                        <a href="https://fala-ja.richpoplawski.io" target="_blank" class="btn-primary">
+                            Try Fala Já
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                        <a href="https://github.com/rpop11/fala-ja" target="_blank" class="btn-source">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            View source
+                        </a>
+                    </div>
                 </div>
-                <div class="build-ctas">
-                    <a href="https://fala-ja.richpoplawski.io" target="_blank" class="btn-primary">
-                        Try Fala Já
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                    </a>
-                    <a href="https://github.com/rpop11/fala-ja" target="_blank" class="btn-source">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        View source
-                    </a>
+
+                <!-- Storytime -->
+                <div class="build-card">
+                    <div class="build-card-title">Storytime 🌙</div>
+                    <p class="build-card-tagline">Pick a character, a setting, and a vibe. Claude writes the rest.</p>
+                    <p class="build-card-oneliner">My daughter loves stories at the end of a long day. I wanted her to have a new one every night without me having to come up with them on the spot — so I built it.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">React</span>
+                        <span class="build-tag">TypeScript</span>
+                        <span class="build-tag">Express</span>
+                        <span class="build-tag">Claude API</span>
+                        <span class="build-tag">Streaming</span>
+                    </div>
+                    <div class="build-ctas">
+                        <a href="https://storytime.richpoplawski.io" target="_blank" class="btn-primary">
+                            Try Storytime
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                        <a href="https://github.com/rpop11/storytime-app" target="_blank" class="btn-source">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            View source
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
